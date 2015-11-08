@@ -18,6 +18,12 @@ app.get('/', function (req, res) {
 app.get('/api/', function (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+
+  var qr = req.query.date;
+  
+  if(qr !== undefined){
+    newDate = qr;
+  }
   request({
     method: 'GET',
     url: 'http://www.tvmuse.com/schedule.html?date=' + newDate
